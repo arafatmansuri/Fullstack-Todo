@@ -1,5 +1,10 @@
 const { readFile, writeFile } = require("../db/fileHandler");
 const _ = require("lodash");
+async function users(a) {
+  const data = await readFile();
+  const users = await JSON.parse(data);
+  return users;
+}
 async function addTodo(req, res) {
   try {
     const todo = req.body.todo;
@@ -34,4 +39,11 @@ async function addTodo(req, res) {
   }
 }
 
-module.exports = { addTodo };
+async function getAllTodos(req, res) {
+  const user = req.user;
+  return res
+    .status(200)
+    .json({ message: "Tasks fetched successfully", tasks: user.tasks });
+}
+
+module.exports = { addTodo, getAllTodos };
