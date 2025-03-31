@@ -20,7 +20,7 @@ async function signin(req, res) {
         .status(404)
         .json({ message: "User not found with this username" });
     }
-    if (!users[currentUserIndex].password === password) {
+    if (!(users[currentUserIndex].password === password)) {
       return res.status(402).json({ message: "Invalid Password" });
     }
     const token = jwt.sign(
