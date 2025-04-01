@@ -1,0 +1,194 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  color: white;
+}
+body {
+  /* background: linear-gradient(green); */
+  background-color: rgb(33 35 40);
+  color: white;
+}
+.cont {
+  /* border: 2px solid white; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  gap: 20px;
+}
+#lock {
+  height: 30px;
+  width: 30px;
+}
+h1 {
+  font-weight: 500;
+  font-size: 17pt;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+  align-items: center;
+  /* margin-top: 30px; */
+  border: 1px solid rgba(46, 51, 61, 10);
+  width: 40%;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #212328;
+  box-shadow: #0d0d0e 0px 0px 0.8cap;
+  padding: 20px;
+}
+#register {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 150px; */
+  box-sizing: border-box;
+  gap: 15px;
+  background-color: #212328;
+  width: 100%;
+  /* padding: 30px; */
+}
+.input-register {
+  /* -webkit-text-size-adjust: 100%; */
+  tab-size: 4;
+  --tw-border-opacity: 1;
+  direction: ltr;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: #e5e7eb;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 80%;
+  line-height: inherit;
+  margin: 0;
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+  border-width: 0px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(46 51 61);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255);
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #a1a1aa;
+  height: 45px;
+  &::placeholder {
+    color: rgb(157, 140, 140);
+    font-size: 12pt;
+  }
+}
+.PassImg {
+  position: relative;
+  width: 100%;
+}
+#openEye {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 450px;
+}
+#closeEye {
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  left: 439px;
+}
+/* #Register-password::after{
+    content: "";
+    background: url(openEye.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;   
+} */
+#Register-Button {
+  tab-size: 4;
+  --tw-border-opacity: 1;
+  direction: ltr;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  margin: 0;
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+  border-width: 0px;
+  --tw-bg-opacity: 1;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255);
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #a1a1aa;
+  height: 45px;
+  border-radius: 5rem;
+  border: none;
+  outline: none;
+  &:enabled {
+    background-color: blueviolet;
+  }
+  &:enabled:hover {
+    background-color: rgba(127, 11, 235, 0.886);
+    cursor: pointer;
+  }
+  &:disabled {
+    background-color: rgb(108, 62, 152);
+  }
+  &:focus {
+    border: 2px solid;
+    border-color: white;
+  }
+}
+.ask-login {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  /* font-weight: 100; */
+  color: rgba(59, 137, 189, 0.859);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+#check {
+  height: 18px;
+  background-blend-mode: lighten;
+  position: relative;
+  top: 4px;
+  word-spacing: 10px;
+  margin-left: 5px;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation-name: rt-360;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes rt-360 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#errbox {
+  color: rgb(232, 40, 40);
+  display: none;
+}

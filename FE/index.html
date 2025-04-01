@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="cont">
+      <main>
+        <div class="log-msg">
+          <img src="./resources/icons8-lock.svg" alt="Lock icon" id="lock" />
+          <h1>Login</h1>
+        </div>
+        <form id="login">
+          <input
+            type="text"
+            id="UserName-LogIn"
+            class="input-login"
+            placeholder="Enter the username..."
+            name="username"
+          />
+          <div class="PassImg">
+            <input
+              type="password"
+              name="password"
+              id="login-password"
+              class="input-login"
+              placeholder="Enter the password..."
+            />
+            <!-- <img
+              src="./resources/openEye.png"
+              alt=""
+              id="openEye"
+              class="EyeImg"
+            /> -->
+          </div>
+          <button disabled type="submit" id="Login-Button" class="input-login">
+            Login
+          </button>
+        </form>
+        <div id="errbox">hey</div>
+        <div class="ask-reg">
+          <small>Don't have an account? <a href="./signup/">Register</a></small>
+        </div>
+        <!-- <a  href="https://icons8.com/icon/59825/lock">Lock</a> icon by <a  href="https://icons8.com">Icons8</a> -->
+      </main>
+    </div>
+    <script src="index.js"></script>
+    <script>
+      //     function logchat() {
+      //     const baseUrl = window.location.origin;
+      //     // console.log(baseUrl);
+      //     const relativePath = "/chats-page";
+      //     const MainUrl = baseUrl + relativePath;
+      //     window.location.href= MainUrl;
+      // }
+    </script>
+    <!-- <script>
+const form = document.querySelector('#login');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Create a FormData object
+    const formData = new FormData(this);
+    // console.log(formData)
+    const name= formData.get('name');
+    const password= formData.get('password');
+    for (let [key,value] of formData.entries()) {
+            console.log(key,value);
+    }
+    fetch('https://jsonplaceholder.typicode.com/posts',{
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+        .then(data =>{ console.table(data)
+            console.log(JSON.stringify(data, null, 2));            
+        })
+        .catch(error => console.error('Error:', error));
+    
+});
+
+
+</script> -->
+  </body>
+</html>
