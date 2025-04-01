@@ -6,6 +6,7 @@ const signUpRouter = require("./src/routes/signup.route.js");
 const { signInrouter } = require("./src/routes/signin.route.js");
 const { userRouter } = require("./src/routes/user.route.js");
 const { todoRouter } = require("./src/routes/todos.route.js");
+const { userAuth } = require("./src/middlewears/userAuth.middlewear.js");
 const app = express();
 //common middlewears:
 app.use(express.json());
@@ -17,7 +18,7 @@ app.use(cookieParser());
 app.use(signUpRouter);
 app.use(signInrouter);
 app.use(userRouter);
-app.use("/todo", todoRouter);
+app.use("/todo", userAuth, todoRouter);
 app.get("/", (req, res) => {
   res.json({ message: "Server is running fine" });
 });
