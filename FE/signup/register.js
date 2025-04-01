@@ -20,7 +20,6 @@ document
     e.preventDefault();
     let username = document.getElementById("UserName-Register").value;
     let password = document.getElementById("Register-password").value;
-    const messageElement = document.getElementById("ask-login");
     console.log(username);
     console.log(password);
     const response = await fetch("http://localhost:3000/signup", {
@@ -37,41 +36,8 @@ document
       document.querySelector("#errbox").style.display = "block";
       document.querySelector("#errbox").textContent = result.message;
     } else {
-      console.log("Registration successful! Redirecting to login...");
-      document.querySelector("#errbox").style.display = "block";
-      document.querySelector("#errbox").style.color = "green";
-      document.querySelector("#errbox").textContent =
-        "Registration successful! Redirecting to login...";
-      setTimeout(() => {
-        const baseUrl = window.location.origin;
-        const addUrl = "/FE/";
-        window.location.href = baseUrl + addUrl;
-      }, 3000);
+      const baseUrl = window.location.origin;
+      const addUrl = "/FE/";
+      window.location.href = baseUrl + addUrl;
     }
   });
-
-/*const password = document.querySelector("#Register-password");
-  const openEyeImg = document.querySelector("#openEye");
-  const BothImgs = document.querySelector(".EyeImg");
-  password.addEventListener("input", () => {
-    if (!password.value == "") {
-      openEyeImg.style.display = "inline-block";
-    } else {
-      openEyeImg.style.display = "none";
-      BothImgs.id = "openEye";
-      password.type = "password";
-      BothImgs.src = "../resources/openEye.png";
-    }
-  });
-  BothImgs.addEventListener("click", (e) => {
-    if (password.type === "password") {
-      password.type = "text";
-      BothImgs.src = "../resources/closeEye.png";
-      BothImgs.id = "closeEye";
-    } else {
-      BothImgs.id = "openEye";
-      password.type = "password";
-      BothImgs.src = "../resources/openEye.png";
-    }
-  });
-  */

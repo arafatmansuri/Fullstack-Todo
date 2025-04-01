@@ -46,10 +46,7 @@ addTask.addEventListener("click", async (e) => {
   Input.focus();
 });
 
-function StoreTask() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-async function renderTasks(Task) {
+async function renderTasks() {
   const response = await axios
     .get("http://127.0.0.1:3000/todo/get", {
       withCredentials: true,
@@ -59,7 +56,6 @@ async function renderTasks(Task) {
       const addUrl = "/FE";
       window.location.href = baseUrl + addUrl;
     });
-  // localStorage.setItem("ts", JSON.stringify(response.data.tasks));
   const tasks = response.data.tasks;
   tasks.map((Task) => {
     const li = document.createElement("li");
@@ -109,9 +105,6 @@ async function renderTasks(Task) {
             const addUrl = "/FE";
             window.location.href = baseUrl + addUrl;
           });
-        // localStorage.setItem("ts", JSON.stringify(response));
-
-        // StoreTask();
       } else {
         Img.src = "uncheck.png";
         Img.classList.replace("check", "uncheck");
