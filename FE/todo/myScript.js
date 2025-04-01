@@ -1,5 +1,4 @@
 let todoList = document.querySelector("#todo-list");
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 const li = document.querySelector("li");
 document.addEventListener("DOMContentLoaded", async () => {
   const response = await axios
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = baseUrl + addUrl;
     });
   renderTasks();
-  console.log(response);
   document.querySelector(
     "h1"
   ).textContent = `Todo List : ${response.data.user.username}`;
@@ -27,9 +25,6 @@ Input.addEventListener("keydown", () => {
   }
 });
 Input.focus();
-// tasks.forEach((task) => {
-//   renderTasks(task);
-// });
 addTask.addEventListener("click", async (e) => {
   const InputText = Input.value;
   const response = await axios
@@ -41,19 +36,14 @@ addTask.addEventListener("click", async (e) => {
       }
     )
     .catch((err) => {
-      console.log(err);
       if (err.response.status >= 400) {
         const baseUrl = window.location.origin;
         const addUrl = "/FE";
         window.location.href = baseUrl + addUrl;
       }
     });
-  console.log(response);
-  // tasks.push(NewTask);
-  // StoreTask(tasks);
   Input.value = "";
   Input.focus();
-  // renderTasks();
 });
 
 function StoreTask() {
@@ -69,7 +59,6 @@ async function renderTasks(Task) {
       const addUrl = "/FE";
       window.location.href = baseUrl + addUrl;
     });
-  console.log(response.data.tasks);
   // localStorage.setItem("ts", JSON.stringify(response.data.tasks));
   const tasks = response.data.tasks;
   tasks.map((Task) => {
@@ -94,7 +83,6 @@ async function renderTasks(Task) {
     todoList.appendChild(li);
 
     li.addEventListener("click", async (e) => {
-      console.log("LI clicked");
       if (e.target.tagName === "BUTTON") return;
       let id = "";
       if (e.target.tagName === "LI") {
@@ -103,7 +91,6 @@ async function renderTasks(Task) {
         id = e.target.parentElement.getAttribute("data-id");
       }
       span.classList.toggle("completed");
-      console.log("clicked span");
       if (span.className.match("completed")) {
         Img.src = "check.png";
         Img.classList.replace("uncheck", "check");
@@ -123,7 +110,7 @@ async function renderTasks(Task) {
             window.location.href = baseUrl + addUrl;
           });
         // localStorage.setItem("ts", JSON.stringify(response));
-        // console.log(response);
+
         // StoreTask();
       } else {
         Img.src = "uncheck.png";
@@ -141,26 +128,20 @@ async function renderTasks(Task) {
             const addUrl = "/FE";
             window.location.href = baseUrl + addUrl;
           });
-        // StoreTask();
       }
     });
     li.querySelector("button").addEventListener("click", async (e) => {
       e.stopPropagation();
       const id = e.target.parentElement.getAttribute("data-id");
-      console.log("Delete clicked");
       await axios
         .delete(`http://127.0.0.1:3000/todo/delete/${id}`, {
           withCredentials: true,
         })
         .catch((err) => {
-          console.log(id);
-          console.log(err);
-          // const baseUrl = window.location.origin;
-          // const addUrl = "/FE";
-          // window.location.href = baseUrl + addUrl;
+          const baseUrl = window.location.origin;
+          const addUrl = "/FE";
+          window.location.href = baseUrl + addUrl;
         });
     });
   });
 }
-
-// localStorage.clear();
