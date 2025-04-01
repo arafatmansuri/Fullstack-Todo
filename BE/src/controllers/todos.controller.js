@@ -8,7 +8,7 @@ async function addTodo(req, res) {
   try {
     const todo = req.body.todo;
     if (todo === "") {
-      return res.status(402).json({ message: "Todo can't be empty" });
+      return res.status(300).json({ message: "Todo can't be empty" });
     }
     const user = req.user;
     const users = await getUsers();
