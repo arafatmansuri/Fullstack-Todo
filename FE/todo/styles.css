@@ -19,15 +19,36 @@ body {
   background-color: #1e1e1e;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 500px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   height: 90vh;
 }
-
+#head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  margin-bottom: 19px;
+  /* border: 2px solid white; */
+}
+#head button{
+  background-color: #d32f2f;
+  border: none;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  height: 90%;
+}
+#head button:hover {
+  background-color: #b71c1c;
+}
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: left;
+  
   font-size: 24px;
+  vertical-align: middle;
 }
 
 .input-container {
@@ -76,11 +97,16 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  user-select: none;
 }
-
+span{
+  width: 170px;
+  text-align: center;
+}
 span.completed {
   text-decoration: line-through;
   opacity: 0.7;
+  padding: 10px;
 }
 .del {
   background-color: #d32f2f;
@@ -117,4 +143,42 @@ li img.check {
 }
 li button:hover {
   background-color: #b71c1c;
+}
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #333333 #DFE9EB;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  display: none;
+  background-color: #5f5d5d;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #5f5d5d;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  /* width: 2px; */
+  background-color: #DFE9EB;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #dcf9ff;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #dcf9ff;
 }

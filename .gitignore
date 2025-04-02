@@ -1,3 +1,4 @@
 node_modules
 .env
-./BE/src/db/todo.json
+BE/src/db/todo.json
+todo.json
