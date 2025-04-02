@@ -11,9 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = baseUrl + addUrl;
     });
   renderTasks();
-  document.querySelector(
-    "h1"
-  ).textContent = `${response.data.user.username}`;
+  document.querySelector("h1").textContent = `${response.data.user.username}`;
 });
 const Input = document.querySelector("#todo-input");
 const addTask = document.querySelector("#add-task-btn");
@@ -138,3 +136,15 @@ async function renderTasks() {
     });
   });
 }
+document.querySelector("#logout").addEventListener("click", async () => {
+  await axios
+    .get("http://127.0.0.1:3000/logout", {
+      withCredentials: true,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  const baseUrl = window.location.origin;
+  const addUrl = "/FE";
+  window.location.href = baseUrl + addUrl;
+});
