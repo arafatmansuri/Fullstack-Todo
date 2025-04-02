@@ -15,8 +15,8 @@ async function signup(req, res) {
       password: password,
       tasks: [],
     };
-    const data = await readFile();
-    const users = await JSON.parse(data);
+    const users = await readFile();
+    // const users = await JSON.parse(data);
     if (
       users.find((user) => {
         return user.username === username;

@@ -8,8 +8,7 @@ async function userAuth(req, res, next) {
       return res.status(401).json({ message: "Token not found" });
     }
     const decodedInfo = jwt.verify(accessToken, process.env.JWT_SECRET);
-    const data = await readFile();
-    const users = await JSON.parse(data);
+    const users = await readFile();
     const user = users.find((user) => {
       return user.username === decodedInfo.username;
     });

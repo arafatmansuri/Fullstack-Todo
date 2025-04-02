@@ -10,8 +10,7 @@ async function signin(req, res) {
     ) {
       return res.status(402).json({ message: "All fields are required" });
     }
-    const data = await readFile();
-    const users = await JSON.parse(data);
+    const users = await readFile();
     const currentUserIndex = users.findIndex((user) => {
       return user.username === username;
     });

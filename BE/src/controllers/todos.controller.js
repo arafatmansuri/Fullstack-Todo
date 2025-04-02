@@ -1,7 +1,6 @@
 const { readFile, writeFile } = require("../db/fileHandler");
 async function getUsers() {
-  const data = await readFile();
-  const users = await JSON.parse(data);
+  const users = await readFile();
   return users;
 }
 async function addTodo(req, res) {
