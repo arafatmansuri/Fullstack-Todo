@@ -1,5 +1,6 @@
 const { UserModel } = require("../db/index.js");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 async function signin(req, res) {
   try {
     const { username, password } = req.body;
@@ -12,7 +13,7 @@ async function signin(req, res) {
         .status(404)
         .json({ message: "User not found with this username" });
     }
-    if (!(user.password === password)) {
+    if (!bcrypt.compareSync(password, user.password)) {
       return res.status(402).json({ message: "Invalid Password" });
     }
     const token = jwt.sign(

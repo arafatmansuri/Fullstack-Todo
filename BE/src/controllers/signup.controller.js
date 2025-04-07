@@ -1,4 +1,7 @@
 const { UserModel } = require("../db/index.js");
+const bcrypt = require("bcrypt");
+
+
 async function signup(req, res) {
   try {
     const { username, password } = req.body;
@@ -15,9 +18,10 @@ async function signup(req, res) {
         .status(300)
         .json({ message: "User already exists with this username" });
     }
+    const hashedPassword = await bcrypt.hash(password,10)
     const newUser = await UserModel.create({
       username: username,
-      password: password,
+      password: hashedPassword,
     });
     return res
       .status(200)
