@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <div class="cont">
+      <main>
+        <div class="log-msg">
+          <img src="../resources/icons8-lock.svg" alt="Lock icon" id="lock" />
+          <h1>Register</h1>
+        </div>
+        <form id="register">
+          <!-- <input
+            type="email"
+            id="Email-Register"
+            class="input-register"
+            placeholder="Enter the email..."
+            value=""
+          /> -->
+          <input
+            type="text"
+            id="UserName-Register"
+            class="input-register"
+            placeholder="Enter the username..."
+            value=""
+          />
+          <div class="PassImg">
+            <input
+              type="password"
+              name="password-Register"
+              id="Register-password"
+              class="input-register"
+              value=""
+              placeholder="Enter the password... "
+            />
+            <!-- <img
+              src="../resources/openEye.png"
+              alt=""
+              id="openEye"
+              class="EyeImg"
+            /> -->
+          </div>
+          <button disabled type="button" id="Register-Button">Register</button>
+        </form>
+        <div id="errbox">hey</div>
+        <div class="ask-login">
+          <small>Already have an account? <a href="../">Login</a></small>
+        </div>
+        <!-- <a  href="https://icons8.com/icon/59825/lock">Lock</a> icon by <a  href="https://icons8.com">Icons8</a> -->
+      </main>
+    </div>
+    <!-- <img src="closeEye.png" alt="" id="closeEye" class="EyeImg"> -->
+    <script src="register.js"></script>
+  </body>
+</html>
